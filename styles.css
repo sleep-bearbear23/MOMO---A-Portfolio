@@ -1,0 +1,144 @@
+/* Reset and base styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 20px;
+
+    background-image: url('asset/general/siteBG.png');
+    /* Replace with your path or URL, e.g., 'https://img.freepik.com/free-vector/background-realistic-abstract-technology-particle_23-2148431735.jpg' */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Remove if parallax is not desired */
+
+    /* Remove solid color for image visibility */
+    background-color: transparent;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: white;
+        color: #e0e0e0;
+    }
+
+    .container {
+        background-color: #242424;
+    }
+
+    header,
+    footer {
+        background-color: #2d2d2d;
+    }
+}
+
+.site-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.site-bar img {
+    width: 30%;
+    left: 5%;
+
+}
+
+/* Grid layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "nav    main"
+        "footer footer";
+    gap: 20px;
+    min-height: 100vh;
+}
+
+header {
+    grid-area: header;
+    background-color: #3498db;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+nav {
+    grid-area: nav;
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+main {
+    grid-area: main;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    grid-area: footer;
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Canvas styling */
+canvas {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "footer";
+    }
+}
